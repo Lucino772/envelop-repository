@@ -1,0 +1,22 @@
+process:
+  command: >-
+    java
+    -Xmx1024M
+    -Xms1024M
+    -jar {{ .Jar }}
+    nogui
+  graceful:
+    type: cmd
+    timeout: 30
+    options:
+      cmd: stop
+
+logging:
+  - type: default
+    options:
+      format: text
+      level: 12
+
+modules:
+  - uses: envelop.core
+  - uses: envelop.minecraft

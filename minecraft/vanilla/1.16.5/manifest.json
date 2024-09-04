@@ -1,0 +1,23 @@
+{
+    "config": "minecraft/vanilla/1.16.5/envelop.yaml",
+    "sources": [
+        {
+            "type": "url",
+            "url": "https://piston-data.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar?checksum=sha1:1b557e7b033b583cd9f66746b7a9ab1ec1673ced",
+            "destination": "server.jar",
+            "exports": {
+                "Jar": "{{ .Destination }}"
+            }
+        },
+        {
+            "type": "url",
+            "url": "data:text/plain;charset=UTF-8;base64,I0J5IGNoYW5naW5nIHRoZSBzZXR0aW5nIGJlbG93IHRvIFRSVUUgeW91IGFyZSBpbmRpY2F0aW5nIHlvdXIgYWdyZWVtZW50IHRvIG91ciBFVUxBIChodHRwczovL2FjY291bnQubW9qYW5nLmNvbS9kb2N1bWVudHMvbWluZWNyYWZ0X2V1bGEpLgpldWxhPXRydWU=",
+            "destination": "eula.txt"
+        },
+        {
+            "type": "url",
+            "url": "data:text/plain;charset=UTF-8;base64,I01pbmVjcmFmdCBzZXJ2ZXIgcHJvcGVydGllcwpzcGF3bi1wcm90ZWN0aW9uPTE2Cm1heC10aWNrLXRpbWU9NjAwMDAKcXVlcnkucG9ydD0yNTU2NQpnZW5lcmF0b3Itc2V0dGluZ3M9CnN5bmMtY2h1bmstd3JpdGVzPXRydWUKZm9yY2UtZ2FtZW1vZGU9ZmFsc2UKYWxsb3ctbmV0aGVyPXRydWUKZW5mb3JjZS13aGl0ZWxpc3Q9ZmFsc2UKZ2FtZW1vZGU9c3Vydml2YWwKYnJvYWRjYXN0LWNvbnNvbGUtdG8tb3BzPXRydWUKZW5hYmxlLXF1ZXJ5PWZhbHNlCnBsYXllci1pZGxlLXRpbWVvdXQ9MAp0ZXh0LWZpbHRlcmluZy1jb25maWc9CmRpZmZpY3VsdHk9ZWFzeQpicm9hZGNhc3QtcmNvbi10by1vcHM9dHJ1ZQpzcGF3bi1tb25zdGVycz10cnVlCm9wLXBlcm1pc3Npb24tbGV2ZWw9NApwdnA9dHJ1ZQplbnRpdHktYnJvYWRjYXN0LXJhbmdlLXBlcmNlbnRhZ2U9MTAwCnNub29wZXItZW5hYmxlZD10cnVlCmxldmVsLXR5cGU9ZGVmYXVsdAplbmFibGUtc3RhdHVzPXRydWUKaGFyZGNvcmU9ZmFsc2UKZW5hYmxlLWNvbW1hbmQtYmxvY2s9ZmFsc2UKbmV0d29yay1jb21wcmVzc2lvbi10aHJlc2hvbGQ9MjU2Cm1heC1wbGF5ZXJzPTIwCm1heC13b3JsZC1zaXplPTI5OTk5OTg0CnJlc291cmNlLXBhY2stc2hhMT0KZnVuY3Rpb24tcGVybWlzc2lvbi1sZXZlbD0yCnJjb24ucG9ydD0yNTU3NQpzZXJ2ZXItcG9ydD0yNTU2NQpzZXJ2ZXItaXA9CnNwYXduLW5wY3M9dHJ1ZQphbGxvdy1mbGlnaHQ9ZmFsc2UKbGV2ZWwtbmFtZT13b3JsZAp2aWV3LWRpc3RhbmNlPTEwCnJlc291cmNlLXBhY2s9CnNwYXduLWFuaW1hbHM9dHJ1ZQp3aGl0ZS1saXN0PWZhbHNlCnJjb24ucGFzc3dvcmQ9CmdlbmVyYXRlLXN0cnVjdHVyZXM9dHJ1ZQpvbmxpbmUtbW9kZT10cnVlCm1heC1idWlsZC1oZWlnaHQ9MjU2CmxldmVsLXNlZWQ9CnByZXZlbnQtcHJveHktY29ubmVjdGlvbnM9ZmFsc2UKdXNlLW5hdGl2ZS10cmFuc3BvcnQ9dHJ1ZQplbmFibGUtam14LW1vbml0b3Jpbmc9ZmFsc2UKbW90ZD1BIE1pbmVjcmFmdCBTZXJ2ZXIKcmF0ZS1saW1pdD0wCmVuYWJsZS1yY29uPWZhbHNlCg==",
+            "destination": "server.properties"
+        }
+    ]
+}
