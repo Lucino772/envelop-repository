@@ -1,0 +1,12 @@
+name: minecraft/eula
+config:
+  os: ["*"]
+  arch: ["*"]
+  tags: []
+manifest:
+  type: files
+  files:
+    - filename: eula.txt
+      source:
+        type: base64
+        content: I0J5IGNoYW5naW5nIHRoZSBzZXR0aW5nIGJlbG93IHRvIFRSVUUgeW91IGFyZSBpbmRpY2F0aW5nIHlvdXIgYWdyZWVtZW50IHRvIG91ciBFVUxBIChodHRwczovL2FjY291bnQubW9qYW5nLmNvbS9kb2N1bWVudHMvbWluZWNyYWZ0X2V1bGEpLgpldWxhPXRydWU=
