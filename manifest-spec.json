@@ -27,6 +27,9 @@
                 "name": {
                     "type": "string"
                 },
+                "path": {
+                    "type": "string"
+                },
                 "config": {
                     "type": "object",
                     "properties": {
@@ -107,25 +110,6 @@
                     "type": "object",
                     "properties": {
                         "type": {
-                            "const": "archive"
-                        },
-                        "format": {
-                            "type": "string"
-                        },
-                        "source": {
-                            "$ref": "#/definitions/source"
-                        }
-                    },
-                    "required": [
-                        "type",
-                        "format",
-                        "source"
-                    ]
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "type": {
                             "const": "steam"
                         },
                         "appid": {
@@ -151,6 +135,9 @@
                             "type": "string"
                         },
                         "hash": {
+                            "type": "string"
+                        },
+                        "archive": {
                             "type": "string"
                         }
                     },
