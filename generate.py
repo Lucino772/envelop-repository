@@ -6,40 +6,44 @@
 # ]
 # ///
 
-import functools
 import json
 from pathlib import Path
+from urllib.parse import urljoin
 from ruamel.yaml import YAML
 import jsonschema
 
 INCLUDES = ["apps/minecraft/vanilla/*.yaml", "apps/valheim/valheim.yaml"]
+ROOT_URL = (
+    "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/"
+)
 
 
 def main():
     root = Path.cwd()
+    yaml = YamlParser(root)
+    output_dir = root / "generated"
 
-    with root.joinpath("manifest-spec.json").open("rb") as fp:
+    schema_path = root / "manifest-spec.json"
+    with schema_path.open("rb") as fp:
         schema = json.load(fp)
 
-    yaml = YamlParser(root)
-    files = functools.reduce(
-        lambda prev, pattern: prev + list(root.glob(pattern)),
-        INCLUDES,
-        [],
-    )
-
-    manifest = {}
-    for file in files:
+    manifests = {}
+    for file in _iter_files(root, INCLUDES):
         data = yaml.load(file)
         jsonschema.validate(data, schema=schema)
-        output = root.joinpath("generated", data["name"] + ".yaml")
-        output.parent.mkdir(parents=True, exist_ok=True)
-        with root.joinpath("generated", data["name"] + ".yaml").open("wb") as fp:
+        out_filename = output_dir / "{}.yaml".format(data["name"])
+        out_filename.parent.mkdir(parents=True, exist_ok=True)
+        with out_filename.open("wb") as fp:
             yaml.dump(data, stream=fp)
-        manifest[data["name"]] = str(output.relative_to(root))
+        manifests[data["name"]] = urljoin(ROOT_URL, str(out_filename.relative_to(root)))
 
-    with open(root.joinpath("generated", "root.json"), "w") as fp:
-        json.dump(manifest, fp, indent=4)
+    with (output_dir / "root.json").open("w") as fp:
+        json.dump(manifests, fp, indent=4)
+
+
+def _iter_files(root: Path, patterns: list[str]):
+    for pattern in patterns:
+        yield from root.glob(pattern)
 
 
 class YamlParser(YAML):
