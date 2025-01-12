@@ -1,0 +1,180 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "config": {
+            "type": "string"
+        },
+        "depots": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/depot"
+            }
+        }
+    },
+    "required": [
+        "name",
+        "config",
+        "depots"
+    ],
+    "definitions": {
+        "depot": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "os": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "arch": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "tags": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "exports": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": [
+                            "string",
+                            "boolean",
+                            "integer",
+                            "number"
+                        ]
+                    }
+                },
+                "manifest": {
+                    "$ref": "#/definitions/depot_manifest"
+                }
+            },
+            "required": [
+                "name",
+                "config",
+                "manifest"
+            ]
+        },
+        "depot_manifest": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "files"
+                        },
+                        "files": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "filename": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "$ref": "#/definitions/source"
+                                    }
+                                },
+                                "required": [
+                                    "filename",
+                                    "source"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "files"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "archive"
+                        },
+                        "format": {
+                            "type": "string"
+                        },
+                        "source": {
+                            "$ref": "#/definitions/source"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "format",
+                        "source"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "steam"
+                        },
+                        "appid": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "appid"
+                    ]
+                }
+            ]
+        },
+        "source": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "http"
+                        },
+                        "url": {
+                            "type": "string"
+                        },
+                        "hash": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "url"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "base64"
+                        },
+                        "content": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "content"
+                    ]
+                }
+            ]
+        }
+    }
+}
