@@ -7,7 +7,7 @@ depots:
       arch: ["*"]
       tags: []
     exports:
-      exe: "{{ .Path }}/valheim_server{{ if eq .TargetOs 'windows' }}.exe{{ end }}"
+      exe: "{{ .Path }}/valheim_server{{ if eq .TargetOs \"windows\" }}.exe{{ end }}"
       save: "{{ .Path }}/envelop_world"
     manifest:
       type: steam
