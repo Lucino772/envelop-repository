@@ -1,4 +1,10 @@
 {
-    "minecraft/vanilla/1.16.5": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/vanilla/1.16.5.yaml",
-    "valheim": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/valheim.yaml"
+    "minecraft/vanilla/1.16.5": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/vanilla/1.16.5.yaml",
+        "hash": "sha1:39d8bb1d3021e88ff7736df57b90460cea2f0e9b"
+    },
+    "valheim": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/valheim.yaml",
+        "hash": "sha1:7c1ebe21594512f93db728e9d7f2e36e100684c1"
+    }
 }

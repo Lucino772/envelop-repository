@@ -41,6 +41,8 @@ depots:
     os: ['*']
     arch: ['*']
     tags: []
+  exports:
+    java: '{{ .Path }}/jdk8u412-b08-jre/bin/java'
   manifest:
     type: files
     files:

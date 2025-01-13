@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 from ruamel.yaml import YAML
 import jsonschema
+import hashlib
 
 INCLUDES = ["apps/minecraft/vanilla/*.yaml", "apps/valheim/valheim.yaml"]
 ROOT_URL = (
@@ -35,7 +36,10 @@ def main():
         out_filename.parent.mkdir(parents=True, exist_ok=True)
         with out_filename.open("wb") as fp:
             yaml.dump(data, stream=fp)
-        manifests[data["name"]] = urljoin(ROOT_URL, str(out_filename.relative_to(root)))
+        manifests[data["name"]] = {
+            "url": urljoin(ROOT_URL, str(out_filename.relative_to(root))),
+            "hash": "sha1:{}".format(hashlib.sha1(out_filename.read_bytes()).hexdigest())
+        }
 
     with (output_dir / "root.json").open("w") as fp:
         json.dump(manifests, fp, indent=4)
