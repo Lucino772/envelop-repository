@@ -1,0 +1,22 @@
+name: minecraft/paper/1.10.2
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/paper/1.10.2
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/paper-1.10.2.jar'
+    manifest:
+      type: files
+      files:
+        - filename: paper-1.10.2.jar
+          source:
+            type: http
+            url: 
+              https://api.papermc.io/v2/projects/paper/versions/1.10.2/builds/918/downloads/paper-1.10.2-918.jar
+            hash: sha256:83354d24a22b6265e76c089b3d17a568abb446c0ccd12c2452f5e148412b16c2

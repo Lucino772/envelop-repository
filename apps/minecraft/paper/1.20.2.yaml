@@ -1,0 +1,22 @@
+name: minecraft/paper/1.20.2
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/paper/1.20.2
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/paper-1.20.2.jar'
+    manifest:
+      type: files
+      files:
+        - filename: paper-1.20.2.jar
+          source:
+            type: http
+            url: 
+              https://api.papermc.io/v2/projects/paper/versions/1.20.2/builds/318/downloads/paper-1.20.2-318.jar
+            hash: sha256:ba340a835ac40b8563aa7eda1cd6479a11a7623409c89a2c35cd9d7490ed17a7

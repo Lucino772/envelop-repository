@@ -13,7 +13,11 @@ from ruamel.yaml import YAML
 import jsonschema
 import hashlib
 
-INCLUDES = ["apps/minecraft/vanilla/*.yaml", "apps/valheim/valheim.yaml"]
+INCLUDES = [
+    "apps/minecraft/vanilla/*.yaml",
+    "apps/minecraft/paper/*.yaml",
+    "apps/valheim/valheim.yaml",
+]
 ROOT_URL = (
     "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/"
 )

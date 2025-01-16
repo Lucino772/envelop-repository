@@ -1,0 +1,22 @@
+name: minecraft/paper/1.16.5
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/paper/1.16.5
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/paper-1.16.5.jar'
+    manifest:
+      type: files
+      files:
+        - filename: paper-1.16.5.jar
+          source:
+            type: http
+            url: 
+              https://api.papermc.io/v2/projects/paper/versions/1.16.5/builds/794/downloads/paper-1.16.5-794.jar
+            hash: sha256:e67da4851d08cde378ab2b89be58849238c303351ed2482181a99c2c2b489276

@@ -339,6 +339,178 @@
         "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/vanilla/1.10.1.yaml",
         "hash": "sha1:8090a27df79a8868060fcaee1044d580eeaf44fc"
     },
+    "minecraft/paper/1.13.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.13.2.yaml",
+        "hash": "sha1:ba46ec0047eee8957a1c6baf55afc2d44a7cb41b"
+    },
+    "minecraft/paper/1.19.4": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.19.4.yaml",
+        "hash": "sha1:3f7d6c6269ec87abbef46db82b721f52a9aeb54e"
+    },
+    "minecraft/paper/1.18.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.18.2.yaml",
+        "hash": "sha1:68fe17563aea53752e7afaf755ff97a38c455083"
+    },
+    "minecraft/paper/1.14.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.14.2.yaml",
+        "hash": "sha1:8ff56c1293303c72489eaca5be10298f471d83ca"
+    },
+    "minecraft/paper/1.12.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.12.2.yaml",
+        "hash": "sha1:2321c8438e92bed6c67cf907296a0b7c3dcdfa4c"
+    },
+    "minecraft/paper/1.18.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.18.1.yaml",
+        "hash": "sha1:e4428f721c052174341843dee67c136a58ea4efd"
+    },
+    "minecraft/paper/1.19.3": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.19.3.yaml",
+        "hash": "sha1:3b128cbb947845469610462e0c4364136aa940b3"
+    },
+    "minecraft/paper/1.16.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.16.1.yaml",
+        "hash": "sha1:2233ac1e7311da94ec02509b3afb9b39928c2740"
+    },
+    "minecraft/paper/1.21.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.21.1.yaml",
+        "hash": "sha1:366698db3a02c1f84e968942e06ef7bc09998d18"
+    },
+    "minecraft/paper/1.17": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.17.yaml",
+        "hash": "sha1:0d3bddd95f53ef817c5d5352c770576e6e392210"
+    },
+    "minecraft/paper/1.11.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.11.2.yaml",
+        "hash": "sha1:611a44127a6609c0c5398185b8297edeaafac17e"
+    },
+    "minecraft/paper/1.19": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.19.yaml",
+        "hash": "sha1:8f97d153a2437e0f5b7d0add2e4653b394257f62"
+    },
+    "minecraft/paper/1.21": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.21.yaml",
+        "hash": "sha1:bef42b7e2950e530eba35171eb82d94a3feb8e79"
+    },
+    "minecraft/paper/1.20": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.20.yaml",
+        "hash": "sha1:163ef8409d47f11a3d69c371f69dc74d4125a377"
+    },
+    "minecraft/paper/1.19.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.19.2.yaml",
+        "hash": "sha1:e32e35522a53a41ddf1ee7a6ff5a25716b294056"
+    },
+    "minecraft/paper/1.16.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.16.2.yaml",
+        "hash": "sha1:80260ea0e2b2fc520acbbb797fca90c1731a3b30"
+    },
+    "minecraft/paper/1.20.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.20.2.yaml",
+        "hash": "sha1:884c8ce0f9d8d5818dcd9a05f202935cf55552e1"
+    },
+    "minecraft/paper/1.9.4": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.9.4.yaml",
+        "hash": "sha1:4a966ee5b49c2b3e181cc0eae17a1a1239c1ccf2"
+    },
+    "minecraft/paper/1.8.8": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.8.8.yaml",
+        "hash": "sha1:61dee329a7c13c9a129d8229568ca1b5b4050763"
+    },
+    "minecraft/paper/1.16.3": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.16.3.yaml",
+        "hash": "sha1:54e55a7f96e08234033f7518a211e0ab92565446"
+    },
+    "minecraft/paper/1.16.5": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.16.5.yaml",
+        "hash": "sha1:71801ec3c4f8bbc43dd9d17c920ea3af5328b3d8"
+    },
+    "minecraft/paper/1.20.6": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.20.6.yaml",
+        "hash": "sha1:77b29ee4a468b3c46f4a3beec249d8f2656e3d4b"
+    },
+    "minecraft/paper/1.18": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.18.yaml",
+        "hash": "sha1:ed53a3b0359c066a4daa0b495cb48ed9a4b961a2"
+    },
+    "minecraft/paper/1.15": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.15.yaml",
+        "hash": "sha1:967b520a90edc979a400a071ac7e0f83d606630b"
+    },
+    "minecraft/paper/1.15.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.15.1.yaml",
+        "hash": "sha1:4d135328bd1364ad24457a2f92fc3f2f224fe0e1"
+    },
+    "minecraft/paper/1.12.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.12.1.yaml",
+        "hash": "sha1:ad973a1750a8bad60dcb004064e33a1e0ab743cc"
+    },
+    "minecraft/paper/1.20.5": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.20.5.yaml",
+        "hash": "sha1:00df82f5290ac1e951f053d1214ecd3322c1cd10"
+    },
+    "minecraft/paper/1.14.3": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.14.3.yaml",
+        "hash": "sha1:89d36eeef59ab2f70aef36854d2a1064373f7097"
+    },
+    "minecraft/paper/1.17.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.17.1.yaml",
+        "hash": "sha1:68f9d675575a7631f59847fd5c90de5bd95ae300"
+    },
+    "minecraft/paper/1.10.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.10.2.yaml",
+        "hash": "sha1:81c36adc146a9e903b66cd97b9d2135d4e1e3449"
+    },
+    "minecraft/paper/1.15.2": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.15.2.yaml",
+        "hash": "sha1:0a1734b67d74861d40fa59d90be324e91ed50b45"
+    },
+    "minecraft/paper/1.20.4": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.20.4.yaml",
+        "hash": "sha1:b332af256f8beee118cdf4fc7245810db6436aa7"
+    },
+    "minecraft/paper/1.19.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.19.1.yaml",
+        "hash": "sha1:d4ac57235022704e7d31c8fd76bec08242bfb7b8"
+    },
+    "minecraft/paper/1.14.4": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.14.4.yaml",
+        "hash": "sha1:bfd3e2f1f4d167021df9fdee52d10217aa643e0e"
+    },
+    "minecraft/paper/1.12": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.12.yaml",
+        "hash": "sha1:ea8fb0ef596d2a600b3ea00d13492c79447ea225"
+    },
+    "minecraft/paper/1.21.4": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.21.4.yaml",
+        "hash": "sha1:952eab624dba7c7f96cfe7be663d3830655f4608"
+    },
+    "minecraft/paper/1.14.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.14.1.yaml",
+        "hash": "sha1:e0309aa3fa1ba5cc7234200226305d4f8e826296"
+    },
+    "minecraft/paper/1.13": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.13.yaml",
+        "hash": "sha1:55101df935d56b9dd85c3b6e32a97a299d1cbb0e"
+    },
+    "minecraft/paper/1.20.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.20.1.yaml",
+        "hash": "sha1:823e798992b4a806bd4aaf4d680892d2a7ef181a"
+    },
+    "minecraft/paper/1.21.3": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.21.3.yaml",
+        "hash": "sha1:a2db914e4c243014600d8773b8de3c75c0cfb77a"
+    },
+    "minecraft/paper/1.13.1": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.13.1.yaml",
+        "hash": "sha1:b6d08c38ca02d69da287c828f10c4f49d1f321ad"
+    },
+    "minecraft/paper/1.16.4": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.16.4.yaml",
+        "hash": "sha1:8ea0651687df144cfcbfc3f4be112253d26fa278"
+    },
+    "minecraft/paper/1.14": {
+        "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/minecraft/paper/1.14.yaml",
+        "hash": "sha1:49823e628effc69de516ed84a868aa291b9e0b98"
+    },
     "valheim": {
         "url": "https://raw.githubusercontent.com/Lucino772/envelop-repository/refs/heads/main/generated/valheim.yaml",
         "hash": "sha1:de394ff0ef27258bbb33d7ee21383bfb6b7afaeb"
