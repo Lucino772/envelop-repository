@@ -22,6 +22,7 @@ ROOT_URL = (
 def main():
     root = Path.cwd()
     yaml = YamlParser(root)
+    yaml.indent(mapping=2, sequence=4, offset=2)
     output_dir = root / "generated"
 
     schema_path = root / "manifest-spec.json"
@@ -38,7 +39,9 @@ def main():
             yaml.dump(data, stream=fp)
         manifests[data["name"]] = {
             "url": urljoin(ROOT_URL, str(out_filename.relative_to(root))),
-            "hash": "sha1:{}".format(hashlib.sha1(out_filename.read_bytes()).hexdigest())
+            "hash": "sha1:{}".format(
+                hashlib.sha1(out_filename.read_bytes()).hexdigest()
+            ),
         }
 
     with (output_dir / "root.json").open("w") as fp:

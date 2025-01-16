@@ -1,0 +1,40 @@
+name: minecraft/vanilla/1.7.7
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/vanilla/1.7.7-windows
+    config:
+      os:
+        - windows
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.7.7.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.7.7.jar
+          source:
+            type: http
+            url: 
+              https://launcher.mojang.com/v1/objects/10e3b9767064b2019142b8a68c9e179f897f7496/windows_server.exe
+            hash: sha1:10e3b9767064b2019142b8a68c9e179f897f7496
+  - name: minecraft/vanilla/1.7.7-linux
+    config:
+      os:
+        - linux
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.7.7.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.7.7.jar
+          source:
+            type: http
+            url: 
+              https://launcher.mojang.com/v1/objects/a6ffc1624da980986c6cc12a1ddc79ab1b025c62/server.jar
+            hash: sha1:a6ffc1624da980986c6cc12a1ddc79ab1b025c62

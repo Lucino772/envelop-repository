@@ -1,0 +1,22 @@
+name: minecraft/vanilla/1.9
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/vanilla/1.9
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.9.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.9.jar
+          source:
+            type: http
+            url: 
+              https://piston-data.mojang.com/v1/objects/b4d449cf2918e0f3bd8aa18954b916a4d1880f0d/server.jar
+            hash: sha1:b4d449cf2918e0f3bd8aa18954b916a4d1880f0d

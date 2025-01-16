@@ -1,0 +1,40 @@
+name: minecraft/vanilla/1.8.3
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/vanilla/1.8.3-windows
+    config:
+      os:
+        - windows
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.8.3.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.8.3.jar
+          source:
+            type: http
+            url: 
+              https://launcher.mojang.com/v1/objects/784d11c7cc6578c045c6a5ab29fae2f718d6e0ae/windows_server.exe
+            hash: sha1:784d11c7cc6578c045c6a5ab29fae2f718d6e0ae
+  - name: minecraft/vanilla/1.8.3-linux
+    config:
+      os:
+        - linux
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.8.3.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.8.3.jar
+          source:
+            type: http
+            url: 
+              https://launcher.mojang.com/v1/objects/163ba351cb86f6390450bb2a67fafeb92b6c0f2f/server.jar
+            hash: sha1:163ba351cb86f6390450bb2a67fafeb92b6c0f2f

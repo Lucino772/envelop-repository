@@ -1,6 +1,6 @@
 process:
   command: >-
-    {{ .Java }}
+    java
     -Xmx1024M
     -Xms1024M
     -jar {{ .Jar }}

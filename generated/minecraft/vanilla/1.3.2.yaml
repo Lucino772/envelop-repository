@@ -1,0 +1,74 @@
+name: minecraft/vanilla/1.3.2
+config: |
+  process:
+    command: >-
+      java
+      -Xmx1024M
+      -Xms1024M
+      -jar {{ .Jar }}
+      nogui
+    graceful:
+      type: cmd
+      timeout: 30
+      options:
+        cmd: stop
+
+  logging:
+    - type: default
+      options:
+        format: text
+        level: 12
+
+  modules:
+    - uses: envelop.core
+    - uses: envelop.minecraft
+depots:
+  - name: minecraft/eula
+    config:
+      os: ['*']
+      arch: ['*']
+      tags: []
+    manifest:
+      type: files
+      files:
+        - filename: eula.txt
+          source:
+            type: base64
+            content: 
+              I0J5IGNoYW5naW5nIHRoZSBzZXR0aW5nIGJlbG93IHRvIFRSVUUgeW91IGFyZSBpbmRpY2F0aW5nIHlvdXIgYWdyZWVtZW50IHRvIG91ciBFVUxBIChodHRwczovL2FjY291bnQubW9qYW5nLmNvbS9kb2N1bWVudHMvbWluZWNyYWZ0X2V1bGEpLgpldWxhPXRydWU=
+  - name: minecraft/vanilla/1.3.2-windows
+    config:
+      os:
+        - windows
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.3.2.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.3.2.jar
+          source:
+            type: http
+            url: 
+              https://launcher.mojang.com/v1/objects/1aba78a34a6c412fffd69ea2d3fbcfc40316e521/windows_server.exe
+            hash: sha1:1aba78a34a6c412fffd69ea2d3fbcfc40316e521
+  - name: minecraft/vanilla/1.3.2-linux
+    config:
+      os:
+        - linux
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.3.2.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.3.2.jar
+          source:
+            type: http
+            url: 
+              https://launcher.mojang.com/v1/objects/3de2ae6c488135596e073a9589842800c9f53bfe/server.jar
+            hash: sha1:3de2ae6c488135596e073a9589842800c9f53bfe

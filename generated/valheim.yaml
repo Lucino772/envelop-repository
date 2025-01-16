@@ -28,14 +28,14 @@ config: |
   modules:
     - uses: envelop.core
 depots:
-- name: steam/app/896660
-  config:
-    os: ['*']
-    arch: ['*']
-    tags: []
-  exports:
-    exe: '{{ .Path }}/valheim_server{{ if eq .TargetOs "windows" }}.exe{{ end }}'
-    save: '{{ .Path }}/envelop_world'
-  manifest:
-    type: steam
-    appid: 896660
+  - name: steam/app/896660
+    config:
+      os: ['*']
+      arch: ['*']
+      tags: []
+    exports:
+      exe: '{{ .Path }}/valheim_server{{ if eq .TargetOs "windows" }}.exe{{ end }}'
+      save: '{{ .Path }}/envelop_world'
+    manifest:
+      type: steam
+      appid: 896660

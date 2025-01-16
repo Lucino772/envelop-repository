@@ -1,0 +1,22 @@
+name: minecraft/vanilla/1.17
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/vanilla/1.17
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.17.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.17.jar
+          source:
+            type: http
+            url: 
+              https://piston-data.mojang.com/v1/objects/0a269b5f2c5b93b1712d0f5dc43b6182b9ab254e/server.jar
+            hash: sha1:0a269b5f2c5b93b1712d0f5dc43b6182b9ab254e

@@ -1,0 +1,56 @@
+name: minecraft/vanilla/1.20.3
+config: |
+  process:
+    command: >-
+      java
+      -Xmx1024M
+      -Xms1024M
+      -jar {{ .Jar }}
+      nogui
+    graceful:
+      type: cmd
+      timeout: 30
+      options:
+        cmd: stop
+
+  logging:
+    - type: default
+      options:
+        format: text
+        level: 12
+
+  modules:
+    - uses: envelop.core
+    - uses: envelop.minecraft
+depots:
+  - name: minecraft/eula
+    config:
+      os: ['*']
+      arch: ['*']
+      tags: []
+    manifest:
+      type: files
+      files:
+        - filename: eula.txt
+          source:
+            type: base64
+            content: 
+              I0J5IGNoYW5naW5nIHRoZSBzZXR0aW5nIGJlbG93IHRvIFRSVUUgeW91IGFyZSBpbmRpY2F0aW5nIHlvdXIgYWdyZWVtZW50IHRvIG91ciBFVUxBIChodHRwczovL2FjY291bnQubW9qYW5nLmNvbS9kb2N1bWVudHMvbWluZWNyYWZ0X2V1bGEpLgpldWxhPXRydWU=
+  - name: minecraft/vanilla/1.20.3
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.20.3.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.20.3.jar
+          source:
+            type: http
+            url: 
+              https://piston-data.mojang.com/v1/objects/4fb536bfd4a83d61cdbaf684b8d311e66e7d4c49/server.jar
+            hash: sha1:4fb536bfd4a83d61cdbaf684b8d311e66e7d4c49
