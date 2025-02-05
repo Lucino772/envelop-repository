@@ -7,7 +7,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://lucino772.github.io/envelop-repository",
+    site: "https://lucino772.github.io",
+    base: "/envelop-repository",
     integrations: [
         tailwind({
             applyBaseStyles: false,
