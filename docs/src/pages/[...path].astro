@@ -1,0 +1,176 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/layout.astro";
+import { Icon } from "astro-icon/components";
+
+type TreeItem = {
+    path?: string;
+    name: string;
+    files: Record<string, TreeItem>;
+    isFile: boolean;
+};
+
+export async function getStaticPaths() {
+    const apps = await getCollection("apps");
+
+    let entries: {
+        params: { path?: string };
+        props: {
+            fullpath?: string;
+            files: Record<string, TreeItem>;
+            crumbs?: TreeItem[];
+        };
+    }[] = [];
+    const tree: TreeItem = { path: "", name: "root", files: {}, isFile: false };
+    entries.push({
+        params: { path: undefined },
+        props: {
+            fullpath: "/",
+            files: tree.files,
+        },
+    });
+
+    apps.forEach((entry) => {
+        const parts = entry.id.split("/");
+        for (let i = 0; i < parts.length; i++) {
+            const parents = parts.slice(0, i);
+            const curr = parts[i];
+            const fullpath = [...parents, curr].join("/");
+
+            let parent = parents.reduce((prev, key) => prev.files[key], tree);
+            if (!Object.hasOwn(parent.files, curr)) {
+                parent.files[curr] = {
+                    path: fullpath,
+                    name: curr,
+                    files: {},
+                    isFile: fullpath === entry.id,
+                };
+            }
+
+            entries.push({
+                params: { path: fullpath },
+                props: {
+                    fullpath: parent.files[curr].path,
+                    files: parent.files[curr].files,
+                    crumbs: [
+                        ...parents.reduce(
+                            (prev, val) => [...prev, prev.at(-1)!.files[val]],
+                            [tree],
+                        ),
+                        parent.files[curr],
+                    ],
+                },
+            });
+        }
+    });
+    return entries;
+}
+
+const { path } = Astro.params;
+const { files, crumbs } = Astro.props;
+
+const sortAlpha = (a: string, b: string) => {
+    if (a < b) {
+        return -1;
+    }
+    if (a > b) {
+        return 1;
+    }
+    return 0;
+};
+
+const sortedFiles = Object.entries(files).toSorted(([, a], [, b]) => {
+    if (!a.isFile && b.isFile) {
+        return -1;
+    } else if (a.isFile && !b.isFile) {
+        return 1;
+    }
+    return sortAlpha(a.name, b.name);
+});
+---
+
+<Layout>
+    <div class="flex w-full flex-col gap-y-4 p-4">
+        <div class="flex flex-row items-center gap-x-3">
+            <h1 class="font-semibold">Envelop Repository</h1>
+            <div class="h-6 w-[2px] rounded-xl bg-gray-800"></div>
+            {
+                crumbs !== undefined && (
+                    <div class="flex flex-row items-center gap-x-2">
+                        {crumbs.slice(0, -1).map((entry) => (
+                            <>
+                                <a
+                                    href={`/${entry.path}`}
+                                    class="hover:underline"
+                                >
+                                    {entry.name}
+                                </a>
+                                <Icon name="lucide:chevron-right" class="" />
+                            </>
+                        ))}
+                        <span class="opacity-80">{crumbs.at(-1)!.name}</span>
+                    </div>
+                )
+            }
+            {
+                crumbs === undefined && (
+                    <div class="flex flex-row items-center gap-x-2">
+                        <span class="opacity-80">root</span>
+                    </div>
+                )
+            }
+        </div>
+        <div class="flex flex-col">
+            {
+                crumbs !== undefined && crumbs.at(0)?.path !== path && (
+                    <a
+                        href={`/${crumbs.at(0)?.path}`}
+                        class="flex flex-col border-b border-gray-800 px-1 py-2"
+                    >
+                        <div class="flex flex-row items-center gap-x-2">
+                            <Icon
+                                name="lucide:corner-left-up"
+                                class="rounded-md bg-gray-900 p-[1px] text-2xl"
+                            />
+                            <h1>..</h1>
+                        </div>
+                    </a>
+                )
+            }
+            {
+                sortedFiles.map(([name, val]) => (
+                    <>
+                        {!val.isFile && (
+                            <a
+                                href={`/${val.path}`}
+                                class="flex flex-col border-b border-gray-800 px-1 py-2"
+                            >
+                                <div class="flex flex-row items-center gap-x-2">
+                                    <Icon
+                                        name="lucide:folder"
+                                        class="rounded-md bg-gray-900 p-[1px] text-2xl"
+                                    />
+                                    <h1>{name}</h1>
+                                </div>
+                            </a>
+                        )}
+                        {val.isFile && (
+                            <a
+                                href={`/apps/${val.path}`}
+                                class="flex flex-col border-b border-gray-800 px-1 py-2"
+                            >
+                                <div class="flex flex-row items-center gap-x-2">
+                                    <Icon
+                                        name="lucide:file"
+                                        class="rounded-md bg-gray-900 p-[1px] text-2xl"
+                                    />
+                                    <h1>{name}</h1>
+                                </div>
+                            </a>
+                        )}
+                    </>
+                ))
+            }
+        </div>
+    </div>
+</Layout>

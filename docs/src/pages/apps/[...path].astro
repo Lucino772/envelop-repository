@@ -1,0 +1,105 @@
+---
+import { Code } from "astro:components";
+import Layout from "@/layouts/layout.astro";
+import { Icon } from "astro-icon/components";
+
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    return (await getCollection("apps")).map((entry) => ({
+        params: { path: entry.id },
+    }));
+}
+
+const { path: id } = Astro.params;
+const url = (await getEntry("apps", id))!.data.url;
+const entry = await getEntry("manifests", id);
+---
+
+<script>
+    const copyBtn = document.querySelector(".copy-to-clipboard");
+    copyBtn?.addEventListener("click", (e) => {
+        const url = copyBtn.getAttribute("data-url")!;
+        navigator.clipboard.writeText(url);
+    });
+</script>
+
+<Layout>
+    <div
+        class="flex h-full min-h-0 w-full min-w-0 flex-col items-center gap-y-4 p-4"
+    >
+        <div class="flex w-full flex-row items-center gap-x-3">
+            <h1 class="font-semibold">Envelop Repository</h1>
+            <div class="h-6 w-[2px] rounded-xl bg-gray-800"></div>
+            <div class="flex flex-row items-center gap-x-3">
+                <h1 class="font-medium">{id}</h1>
+                <button
+                    data-tippy-content="Copy manifest URL"
+                    class="copy-to-clipboard"
+                    data-url={url}
+                >
+                    <Icon
+                        class="rounded-md border border-white/10 p-0.5 text-2xl"
+                        name="lucide:copy"
+                    />
+                </button>
+            </div>
+        </div>
+        <div class="flex h-full w-full flex-row gap-4">
+            <div class="flex flex-1 flex-col gap-2">
+                {
+                    entry!.data.depots.map((depot) => (
+                        <div class="flex flex-col gap-2 rounded-md bg-gray-800 p-3">
+                            <div class="flex flex-1 flex-row items-center justify-between">
+                                <div class="flex flex-row items-center gap-2">
+                                    {depot.manifest.type === "steam" && (
+                                        <Icon
+                                            class="rounded-md border border-white/10 p-1.5 text-3xl"
+                                            name="fa6-brands:steam"
+                                        />
+                                    )}
+                                    {depot.manifest.type === "files" && (
+                                        <Icon
+                                            class="rounded-md border border-white/10 p-1.5 text-3xl"
+                                            name="lucide:folder"
+                                        />
+                                    )}
+                                    <p>{depot.name}</p>
+                                </div>
+                                <div class="flex flex-row items-center gap-2">
+                                    {(depot.config.os.includes("windows") ||
+                                        depot.config.os.includes("*")) && (
+                                        <Icon name="fa6-brands:windows" />
+                                    )}
+                                    {(depot.config.os.includes("linux") ||
+                                        depot.config.os.includes("*")) && (
+                                        <Icon name="fa6-brands:linux" />
+                                    )}
+                                    {(depot.config.os.includes("macos") ||
+                                        depot.config.os.includes("*")) && (
+                                        <Icon name="fa6-brands:apple" />
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+            <div class="flex flex-1 flex-col">
+                <div class="flex flex-row">
+                    <p class="rounded-t-xl bg-[#1E1E1E] px-4 py-1.5">
+                        envelop.yaml
+                    </p>
+                </div>
+                <Code
+                    id="content"
+                    lang="yaml"
+                    code={entry!.data.config}
+                    theme="dark-plus"
+                    class="flex-1 rounded-xl rounded-tl-none px-3 py-2"
+                    style="scrollbar-width: thin;"
+                />
+            </div>
+        </div>
+    </div>
+</Layout>

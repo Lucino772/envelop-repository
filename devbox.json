@@ -2,17 +2,20 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
   "packages": [
     "python@3.11",
-    "uv@0.5.14"
+    "uv@0.5.14",
+    "nodejs@20"
   ],
   "env": {
-    "UV_PYTHON": "$VENV_DIR/bin/python"
+    "UV_PYTHON": "$VENV_DIR/bin/python",
+    "DEVBOX_COREPACK_ENABLED": "true"
   },
   "shell": {
     "init_hook": [
       ". $VENV_DIR/bin/activate"
     ],
     "scripts": {
-      "generate": "uv run --no-project generate.py"
+      "generate": "uv run --no-project generate.py",
+      "docs:build": "pnpm -C ./docs build"
     }
   }
 }
