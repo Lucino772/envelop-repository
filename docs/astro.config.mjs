@@ -9,6 +9,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
     site: "https://lucino772.github.io",
     base: "/envelop-repository",
+    trailingSlash: "never",
     integrations: [
         tailwind({
             applyBaseStyles: false,
