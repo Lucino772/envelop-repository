@@ -1,0 +1,57 @@
+name: docker runtimes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix:
+        template:
+          - dockerfile: runtimes/docker/Java.Dockerfile
+            image: ghcr.io/envelop-runtime-java-8
+            tags: |
+              type=raw,value=latest,enable=true,priority=600
+              type=raw,value=8u452-b09-jre-jammy,enable=true,priority=600
+            args: |
+              TEMURIN_IMAGE_TAG=8u452-b09-jre-jammy
+          - dockerfile: runtimes/docker/Java.Dockerfile
+            image: ghcr.io/envelop-runtime-java-16
+            tags:
+              type=raw,value=latest,enable=true,priority=600
+              type=raw,value=16.0.2_7-jdk-focal,enable=true,priority=600
+            args: |
+              TEMURIN_IMAGE_TAG=16.0.2_7-jdk-focal
+          - dockerfile: runtimes/docker/Java.Dockerfile
+            image: ghcr.io/envelop-runtime-java-17
+            tags: |
+              type=raw,value=latest,enable=true,priority=600
+              type=raw,value=17.0.15_6-jre-jammy,enable=true,priority=600
+            args: |
+              TEMURIN_IMAGE_TAG=17.0.15_6-jre-jammy
+          - dockerfile: runtimes/docker/Java.Dockerfile
+            image: ghcr.io/envelop-runtime-java-21
+            tags: |
+              type=raw,value=latest,enable=true,priority=600
+              type=raw,value=21.0.7_6-jre-jammy,enable=true,priority=600
+            args: |
+              TEMURIN_IMAGE_TAG=21.0.7_6-jre-jammy
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ matrix.template.image }}
+          tags: ${{ matrix.template.tags }}

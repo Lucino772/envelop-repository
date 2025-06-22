@@ -1,0 +1,2 @@
+ARG TEMURIN_IMAGE_TAG=11.0.24_8-jre-jammy
+FROM eclipse-temurin:${TEMURIN_IMAGE_TAG}
