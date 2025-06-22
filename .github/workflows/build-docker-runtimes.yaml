@@ -62,3 +62,11 @@ jobs:
         with:
           images: ${{ matrix.template.image }}
           tags: ${{ matrix.template.tags }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
