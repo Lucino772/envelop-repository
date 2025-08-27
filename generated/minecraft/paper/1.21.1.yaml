@@ -1,4 +1,5 @@
 name: minecraft/paper/1.21.1
+runtime: envelop-runtime/java-21
 config: |
   process:
     command: >-
@@ -52,5 +53,5 @@ depots:
           source:
             type: http
             url: 
-              https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/132/downloads/paper-1.21.1-132.jar
-            hash: sha256:49716b013342c75f5fa141c8cda2647aa0a1e1818d2a61aae0a43299e35ff418
+              https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/133/downloads/paper-1.21.1-133.jar
+            hash: sha256:39bd8c00b9e18de91dcabd3cc3dcfa5328685a53b7187a2f63280c22e2d287b9

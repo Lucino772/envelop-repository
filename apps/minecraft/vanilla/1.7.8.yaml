@@ -1,4 +1,5 @@
 name: minecraft/vanilla/1.7.8
+runtime: envelop-runtime/java-8
 config: !content apps/minecraft/envelop.yaml
 depots:
   - !include apps/minecraft/eula.yaml

@@ -1,4 +1,5 @@
 name: minecraft/paper/1.17.1
+runtime: envelop-runtime/java-16
 config: !content apps/minecraft/envelop.yaml
 depots:
   - !include apps/minecraft/eula.yaml

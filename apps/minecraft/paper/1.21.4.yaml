@@ -1,4 +1,5 @@
 name: minecraft/paper/1.21.4
+runtime: envelop-runtime/java-21
 config: !content apps/minecraft/envelop.yaml
 depots:
   - !include apps/minecraft/eula.yaml
@@ -18,5 +19,5 @@ depots:
           source:
             type: http
             url: 
-              https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/114/downloads/paper-1.21.4-114.jar
-            hash: sha256:6e5ba90899064fe22970eeb21dd09267b99f9d6aaba241d2fddb76098594b685
+              https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/232/downloads/paper-1.21.4-232.jar
+            hash: sha256:5ee4f542f628a14c644410b08c94ea42e772ef4d29fe92973636b6813d4eaffc

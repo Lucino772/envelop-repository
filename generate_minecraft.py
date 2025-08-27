@@ -2,7 +2,8 @@
 # requires-python = ">=3.11"
 # dependencies = [
 #   "httpx==0.28.1",
-#   "ruamel-yaml==0.18.10"
+#   "ruamel-yaml==0.18.10",
+#   "packaging==25.0"
 # ]
 # ///
 
@@ -13,6 +14,7 @@ from pathlib import Path
 from ruamel.yaml import YAML
 import httpx
 import datetime as dt
+from packaging.version import Version
 
 VANILLA_MANIFEST_URL = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
 PAPER_MANIFEST_URL = "https://api.papermc.io/v2/projects/paper"
@@ -115,6 +117,7 @@ async def download_vanilla_version(
             yaml.dump(
                 {
                     "name": f"minecraft/vanilla/{version_id}",
+                    "runtime": "envelop-runtime/java-{}".format(data.get("javaVersion", {}).get("majorVersion", "8")),
                     "config": Tag("!content", "apps/minecraft/envelop.yaml"),
                     "depots": [Tag("!include", "apps/minecraft/eula.yaml"), *depots],
                 },
@@ -189,12 +192,23 @@ async def download_paper_version(
             }
         )
 
+    parsed_version = Version(version)
+    if parsed_version < Version("1.17"):
+        java_version = "8"
+    elif parsed_version < Version("1.18"):
+        java_version = "16"
+    elif parsed_version < Version("1.20.5"):
+        java_version = "17"
+    else:
+        java_version = "21"
+
     if len(depots) > 0:
         with open(output_dir / f"{version}.yaml", "wb") as fp:
             yaml.indent(mapping=2, sequence=4, offset=2)
             yaml.dump(
                 {
                     "name": f"minecraft/paper/{version}",
+                    "runtime": "envelop-runtime/java-{}".format(java_version),
                     "config": Tag("!content", "apps/minecraft/envelop.yaml"),
                     "depots": [Tag("!include", "apps/minecraft/eula.yaml"), *depots],
                 },

@@ -1,4 +1,5 @@
 name: minecraft/vanilla/1.16.5
+runtime: envelop-runtime/java-8
 config: |
   process:
     command: >-
