@@ -1,4 +1,4 @@
-name: minecraft/paper/1.21.6
+name: minecraft/paper/1.21.8
 runtime: envelop-runtime/java-21
 config: |
   process:
@@ -37,7 +37,7 @@ depots:
             type: base64
             content: 
               I0J5IGNoYW5naW5nIHRoZSBzZXR0aW5nIGJlbG93IHRvIFRSVUUgeW91IGFyZSBpbmRpY2F0aW5nIHlvdXIgYWdyZWVtZW50IHRvIG91ciBFVUxBIChodHRwczovL2FjY291bnQubW9qYW5nLmNvbS9kb2N1bWVudHMvbWluZWNyYWZ0X2V1bGEpLgpldWxhPXRydWU=
-  - name: minecraft/paper/1.21.6
+  - name: minecraft/paper/1.21.8
     config:
       os:
         - '*'
@@ -45,13 +45,13 @@ depots:
         - '*'
       tags: []
     exports:
-      jar: '{{.Path }}/paper-1.21.6.jar'
+      jar: '{{.Path }}/paper-1.21.8.jar'
     manifest:
       type: files
       files:
-        - filename: paper-1.21.6.jar
+        - filename: paper-1.21.8.jar
           source:
             type: http
             url: 
-              https://api.papermc.io/v2/projects/paper/versions/1.21.6/builds/48/downloads/paper-1.21.6-48.jar
-            hash: sha256:35e2dfa66b3491b9d2f0bb033679fa5aca1e1fdf097e7a06a80ce8afeda5c214
+              https://api.papermc.io/v2/projects/paper/versions/1.21.8/builds/55/downloads/paper-1.21.8-55.jar
+            hash: sha256:8d2d772fbf77210ede1ea670c262aa7c8f8ef7f31d8e86e14a37c20b4d36fd20

@@ -1,0 +1,23 @@
+name: minecraft/vanilla/1.21.8
+runtime: envelop-runtime/java-21
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/vanilla/1.21.8
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/server-1.21.8.jar'
+    manifest:
+      type: files
+      files:
+        - filename: server-1.21.8.jar
+          source:
+            type: http
+            url: 
+              https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar
+            hash: sha1:6bce4ef400e4efaa63a13d5e6f6b500be969ef81

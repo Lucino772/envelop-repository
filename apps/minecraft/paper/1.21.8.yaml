@@ -1,0 +1,23 @@
+name: minecraft/paper/1.21.8
+runtime: envelop-runtime/java-21
+config: !content apps/minecraft/envelop.yaml
+depots:
+  - !include apps/minecraft/eula.yaml
+  - name: minecraft/paper/1.21.8
+    config:
+      os:
+        - '*'
+      arch:
+        - '*'
+      tags: []
+    exports:
+      jar: '{{.Path }}/paper-1.21.8.jar'
+    manifest:
+      type: files
+      files:
+        - filename: paper-1.21.8.jar
+          source:
+            type: http
+            url: 
+              https://api.papermc.io/v2/projects/paper/versions/1.21.8/builds/55/downloads/paper-1.21.8-55.jar
+            hash: sha256:8d2d772fbf77210ede1ea670c262aa7c8f8ef7f31d8e86e14a37c20b4d36fd20
